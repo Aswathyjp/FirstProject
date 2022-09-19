@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+        <style>
+    .container{
+               text-align:left;
+               padding:20px;
+               color:tomato;
+              text-align:Left;
+              font-family:timesnewroman;
+               font-size:120%;
+
+               }
+        .logbtn{
+                  background-color:white;
+                  color:red;
+                  padding:10px 10px;
+                  margin:10px;
+                  border:1px solid red;
+                  cursor:pointer;
+                  width:10%;
+
+                }
+    </style>
+</head>
+<body  style="background-image.url('{% static "images/reg.webp" %}')"; text-align:left;">
+<h1 style="color:tomato">
+    login
+</h1>
+<form action="login" method="post">
+    {% csrf_token %}
+    <div class="container">
+        <b>  Username</b><input type="text" name="username" placeholder="Enter your username" > <br>
+        <b>Password</b> <input type="password" name="password" placeholder="Enter your password" > <br>
+           <button type="submit" class="logbtn">
+               <b> login</b>
+                </button>
+    {% for msg in messages %}
+    {{msg}}
+    {% endfor %}
+    </div>
+
+</form>
+
+
+</body>
+</html>
